@@ -2,25 +2,24 @@
 
 
 
-@model BookDetails
+@model Librarian
 
-<h2>Create Book</h2>
+<h2>Create Librarian</h2>
 
 @if (ViewBag.Message != null)
 {
     <h2 id="Message">@ViewBag.Message</h2>
 }
 
-<form asp-action="CreateBooksDetails" method="post">
-    <div><label>Title</label><input asp-for="Title" /><span asp-validation-for="Title"></span></div>
-    <div><label>Author</label><input asp-for="Author" /><span asp-validation-for="Author"></span></div>
-    <div><label>Genre</label><input asp-for="Genre" /><span asp-validation-for="Genre"></span></div>
-    <div><label>Total Copies</label><input asp-for="TotalCopies" /><span asp-validation-for="TotalCopies"></span></div>
-    <div><label>Available Copies</label><input asp-for="AvailableCopies" /><span asp-validation-for="AvailableCopies"></span></div>
+<form asp-action="CreateLibrarian" method="post">
+    <div><label>Name</label><input asp-for="Name" /><span asp-validation-for="Name"></span></div>
+    <div><label>Gender</label><input asp-for="Gender" /><span asp-validation-for="Gender"></span></div>
+    <div><label>Experience</label><input asp-for="Experience" /><span asp-validation-for="Experience"></span></div>
+    <div><label>Contact</label><input asp-for="Contact" /><span asp-validation-for="Contact"></span></div>
     <div>
         <label>Branch</label>
         <select asp-for="BranchId" asp-items="Model.Branches"></select>
         <span asp-validation-for="BranchId"></span>
     </div>
-    <button type="submit" id="BookCreationBtn">Create</button>
+    <button type="submit" id="LibrarianCreationBtn">Create</button>
 </form>
