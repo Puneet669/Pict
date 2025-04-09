@@ -2,27 +2,33 @@
 
 
 
-@model IEnumerable<BranchDetails>
+@model IEnumerable<BookDetails>
 
-<h2>Branch List</h2>
+<h2>Book List</h2>
 
-<table id="getBranches" border="1">
+<table id="getBooks" border="1">
     <thead>
         <tr>
-            <th>Branch Id</th>
-            <th>Name</th>
-            <th>Location</th>
-            <th>City</th>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Genre</th>
+            <th>Total Copies</th>
+            <th>Available Copies</th>
+            <th>Branch</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var branch in Model)
+        @foreach (var book in Model)
         {
             <tr>
-                <td>@branch.BranchId</td>
-                <td>@branch.BranchName</td>
-                <td>@branch.BranchLocation</td>
-                <td>@branch.City</td>
+                <td>@book.Id</td>
+                <td>@book.Title</td>
+                <td>@book.Author</td>
+                <td>@book.Genre</td>
+                <td>@book.TotalCopies</td>
+                <td>@book.AvailableCopies</td>
+                <td>@book.Branch?.BranchName</td>
             </tr>
         }
     </tbody>
