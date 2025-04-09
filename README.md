@@ -1,32 +1,29 @@
 # Pict
 
 
+@model IEnumerable<Members>
 
-@model IEnumerable<Librarian>
+<h2>Member List</h2>
 
-<h2>Librarian List</h2>
-
-<table id="getLibrarians" border="1">
+<table id="getMembers" border="1">
     <thead>
         <tr>
             <th>Id</th>
             <th>Name</th>
             <th>Gender</th>
-            <th>Experience</th>
             <th>Contact</th>
             <th>Branch</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var librarian in Model)
+        @foreach (var member in Model)
         {
             <tr>
-                <td>@librarian.Id</td>
-                <td>@librarian.Name</td>
-                <td>@librarian.Gender</td>
-                <td>@librarian.Experience</td>
-                <td>@librarian.Contact</td>
-                <td>@librarian.Branch?.BranchName</td>
+                <td>@member.Id</td>
+                <td>@member.Name</td>
+                <td>@member.Gender</td>
+                <td>@member.Contact</td>
+                <td>@member.Branch?.BranchName</td>
             </tr>
         }
     </tbody>
