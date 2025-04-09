@@ -2,23 +2,28 @@
 
 
 
-@model Members
+@model IEnumerable<BranchDetails>
 
-<h2>Create Member</h2>
+<h2>Branch List</h2>
 
-@if (ViewBag.Message != null)
-{
-    <h2 id="Message">@ViewBag.Message</h2>
-}
-
-<form asp-action="CreateMembership" method="post">
-    <div><label>Name</label><input asp-for="Name" /><span asp-validation-for="Name"></span></div>
-    <div><label>Gender</label><input asp-for="Gender" /><span asp-validation-for="Gender"></span></div>
-    <div><label>Contact</label><input asp-for="Contact" /><span asp-validation-for="Contact"></span></div>
-    <div>
-        <label>Branch</label>
-        <select asp-for="BranchId" asp-items="Model.Branches"></select>
-        <span asp-validation-for="BranchId"></span>
-    </div>
-    <button type="submit" id="MemberCreationBtn">Create</button>
-</form>
+<table id="getBranches" border="1">
+    <thead>
+        <tr>
+            <th>Branch Id</th>
+            <th>Name</th>
+            <th>Location</th>
+            <th>City</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var branch in Model)
+        {
+            <tr>
+                <td>@branch.BranchId</td>
+                <td>@branch.BranchName</td>
+                <td>@branch.BranchLocation</td>
+                <td>@branch.City</td>
+            </tr>
+        }
+    </tbody>
+</table>
